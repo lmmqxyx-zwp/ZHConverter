@@ -1,5 +1,8 @@
 package top.by.zh;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <p>Title: Main.java</p>
  * <p>Description: 转换主函数</p>
@@ -27,8 +30,21 @@ public class Main {
      // 文件类型定义 @{link ChangeSimpleToTraditional#traverseFolder2}
      */
     public static void main(String[] args) {
-        // 需要简繁转换的目录
-        ChangeSimpleToTraditional.changeFileFromSimpleChineseToTradionalWithRootPath(dir);
+        try {
+            // 需要简繁转换的目录
+            // E:\tmp\test
+            String dir = "E:\\tmp\\test";
+            List<String> suffixNames = new ArrayList<String>();
+            suffixNames.add("txt");
+
+            boolean debug = true;
+
+            ChangeSimpleToTraditional.changeFileFromSimpleChineseToTradionalWithRootPath(dir, suffixNames, debug);
+
+            System.out.println("INFO：SUCCESS");
+        } catch (Exception e) {
+            System.err.println("ERROR：FAIL");
+        }
     }
 
 }
